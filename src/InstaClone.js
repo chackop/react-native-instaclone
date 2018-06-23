@@ -23,8 +23,8 @@ export class InstaClone extends Component {
             </Text>
           </View>
 
-          <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-            <Text style={{ fontSize: 20 }}>
+          <View style={{ alignItems: 'center' }}>
+            <Text style={{ fontSize: 50, marginTop: -10 }}>
               ...
             </Text>
           </View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgb(233, 33, 233)",
     paddingHorizontal: 10,
     flexDirection: 'row',
-    // justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   userPic: {
     width: 40,
