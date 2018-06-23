@@ -1,7 +1,19 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
 export class InstaClone extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      screenWidth: Dimensions.get("window").width
+    }
+  }
+
   render() {
+    const ImageHeight = Math.floor(this.state.screenWidth * 1.1);
+    const imageURI = "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA" + "=s" + ImageHeight;
+
     return (
       <View style={{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
         <View style={styles.tempNav}>
@@ -9,7 +21,6 @@ export class InstaClone extends Component {
             Instagram
           </Text>
         </View>
-
         <View style={styles.userBar}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Image
@@ -31,9 +42,9 @@ export class InstaClone extends Component {
         </View>
 
         <Image
-          style={{ width: 100 + '%', height: 100 + '%' }}
+          style={{ width: this.state.screenWidth, height: 425 }}
           source={{
-            url: "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA"
+            url: imageURI
           }}
         />
       </View >
