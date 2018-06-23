@@ -12,7 +12,7 @@ export class InstaClone extends Component {
 
   render() {
     const ImageHeight = Math.floor(this.state.screenWidth * 1.1);
-    const imageURI = "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA" + "=s" + ImageHeight;
+    const imageURI = "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA" + "=s" + ImageHeight + "-c";
 
     return (
       <View style={{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
