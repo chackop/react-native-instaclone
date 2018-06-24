@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native'
 import config from "./config";
 export class InstaClone extends Component {
 
@@ -7,13 +7,22 @@ export class InstaClone extends Component {
     super(props)
 
     this.state = {
-      screenWidth: Dimensions.get("window").width
+      screenWidth: Dimensions.get("window").width,
+      liked: false
     }
+  }
+
+  likeToggled() {
+    this.setState({
+      liked: !this.state.liked,
+    })
   }
 
   render() {
     const ImageHeight = Math.floor(this.state.screenWidth * 1.1);
     const imageURI = "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA" + "=s" + ImageHeight + "-c";
+
+    const heartIconColor = this.state.liked ? "rgb(252, 81, 57)" : null;
 
     return (
       <View style={{ flex: 1, width: 100 + '%', height: 100 + '%' }}>
@@ -41,16 +50,21 @@ export class InstaClone extends Component {
             </Text>
           </View>
         </View>
+        <TouchableOpacity onPress={() => {
+          this.likeToggled();
+        }
+        }>
+          <Image
+            style={{ width: this.state.screenWidth, height: 400 }}
+            source={{
+              url: imageURI
+            }}
+          />
+        </TouchableOpacity>
 
-        <Image
-          style={{ width: this.state.screenWidth, height: 425 }}
-          source={{
-            url: imageURI
-          }}
-        />
         <View style={styles.iconBar}>
           <Image
-            style={[styles.icon, { height: 40, width: 40 }]}
+            style={[styles.icon, { height: 40, width: 40, tintColor: heartIconColor }]}
             source={config.images.heartIcon}
           />
           <Image
