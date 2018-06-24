@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import config from "./config";
 export class InstaClone extends Component {
 
   constructor(props) {
@@ -47,6 +48,21 @@ export class InstaClone extends Component {
             url: imageURI
           }}
         />
+        <View style={styles.iconBar}>
+          <Image
+            style={[styles.icon, { height: 40, width: 40 }]}
+            source={config.images.heartIcon}
+          />
+          <Image
+            style={[styles.icon, { height: 50, width: 50 }]}
+            source={config.images.rightIcon}
+          />
+          <Image
+            resizeMode="stretch"
+            style={[styles.icon, { height: 45, width: 45 }]}
+            source={config.images.chatIcon}
+          />
+        </View>
       </View >
     )
   }
@@ -65,6 +81,7 @@ const styles = StyleSheet.create({
   },
   userBar: {
     width: 100 + "%",
+    // height: config.styleConstants.rowHeight,
     height: 50,
     backgroundColor: "rgb(255, 255, 255)",
     borderBottomColor: "rgb(233, 33, 233)",
@@ -76,7 +93,20 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 15,
-  }
+  },
+  iconBar: {
+    // height: config.styleConstants.rowHeight,
+    height: 50,
+    width: 100 + '%',
+    borderColor: "rgb(233, 33, 233)",
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    marginLeft: 5,
+  },
 });
 
 export default InstaClone
