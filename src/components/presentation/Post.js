@@ -20,8 +20,8 @@ export class Post extends Component {
 
     render() {
         const ImageHeight = Math.floor(this.state.screenWidth * 1.1);
-        const imageURI = "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA" + "=s" + ImageHeight + "-c";
-
+        const imageSelection = this.props.item % 2 === 0 ? "https://lh3.googleusercontent.com/qU5spqGPXhEGmM5fbwr5Jy_IdsO6qI7McxS6PEenPUsrh13aKZfUWDgajuYF-GDa2Bq4k_2v6BQBqf8XEVfGGuMVXA" : "https://lh3.googleusercontent.com/OYRjxGR0g2ukqhmIxZMKDBDQPFcH4R3oiTlSlCiGkmHyrJ3mbpGACKGLTaSs3VgdDXYBVE4AYT_6FgUrb8SRnH5A7w";
+        const imageURI = imageSelection + "=s" + ImageHeight + "-c";
         const heartIconColor = this.state.liked ? "rgb(252, 81, 57)" : null;
 
         return (
