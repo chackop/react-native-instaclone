@@ -80,7 +80,7 @@ export class Post extends Component {
                     />
                     <Text>
                         300 likes
-          </Text>
+                    </Text>
                 </View>
             </View >
         )
