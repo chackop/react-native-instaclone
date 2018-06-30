@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, Dimensions, } from 'react-native'
-import { MainFeed, Login } from './components/screens'
-import { SwitchNavigator, TabNavigator } from "react-navigation";
+import { MainFeed, Login, Camera, Profile, Register } from './components/screens'
+import { SwitchNavigator, TabNavigator, StackNavigator } from "react-navigation";
+
+const IntroStack = StackNavigator({
+  login: Login,
+  register: Register,
+})
+
+const Tabs = TabNavigator({
+  feed: MainFeed,
+  camera: Camera,
+  profile: Profile
+})
 
 const MainStack = SwitchNavigator({
-  login: Login,
-  main: MainFeed,
+  intro: IntroStack,
+  main: Tabs,
 })
 
 export class InstaClone extends Component {
