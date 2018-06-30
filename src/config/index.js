@@ -7,4 +7,5 @@ export default {
     stylesConstants: {
         rowHeight: 50,
     },
+    baseUrl: 'https://instaapi-5dtcw0.turbo360-vertex.com/api/'
 };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, TextInput, Button, StyleSheet } from 'react-native'
+import config from '../../config'
 
 export default class Register extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ export default class Register extends Component {
 
     this.state = {
       credentials: {
-        login: "",
+        email: "",
         password: ""
       }
     };
@@ -22,9 +23,23 @@ export default class Register extends Component {
   }
 
   register() {
-    alert(JSON.stringify(this.state.credentials));
     // this.props.navigation.navigate('main')
+    fetch(config.baseUrl + 'signup', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state.credentials),
+    })
+      .then((data) => {
+        console.log("success data", JSON.stringify(data));
+      })
+      .catch((err) => {
+        console.log("error data", JSON.stringify(err));
+      });
   }
+
   render() {
     return (
       <View style={{ height: 100 + "%", width: 100 + "%", flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "cyan" }}>
@@ -32,7 +47,7 @@ export default class Register extends Component {
         <TextInput onChangeText={(text) => this.updateText(text, "login")} style={styles.input} placeholder="Username"
           value={this.state.login} autoCorrect={false}
         />
-        <TextInput onChangeText={(text) => this.updateText(text, "password")} style={styles.input} placeholder="Password" secureTextEntry={true} 
+        <TextInput onChangeText={(text) => this.updateText(text, "password")} style={styles.input} placeholder="Password" secureTextEntry={true}
           value={this.state.password} autoCorrect={false}
         />
         <Button title="Sign Up" onPress={() => {
