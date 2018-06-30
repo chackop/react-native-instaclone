@@ -32,8 +32,14 @@ export default class Register extends Component {
       },
       body: JSON.stringify(this.state.credentials),
     })
-      .then((data) => {
-        console.log("success data", JSON.stringify(data));
+      .then((response) => response.json())
+      .then((jsonresponse) => {
+        console.log("success data", JSON.stringify(jsonresponse));
+        if (jsonresponse.confirmation === "success") {
+          this.props.navigation.navigate('main')
+        } else {
+          throw new Error({ message: "Sorry something went wrong" });
+        }
       })
       .catch((err) => {
         console.log("error data", JSON.stringify(err));
@@ -44,8 +50,8 @@ export default class Register extends Component {
     return (
       <View style={{ height: 100 + "%", width: 100 + "%", flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "cyan" }}>
         <Text> REGISTER PAGE </Text>
-        <TextInput onChangeText={(text) => this.updateText(text, "login")} style={styles.input} placeholder="Username"
-          value={this.state.login} autoCorrect={false}
+        <TextInput onChangeText={(text) => this.updateText(text, "email")} style={styles.input} placeholder="Username"
+          value={this.state.email} autoCorrect={false}
         />
         <TextInput onChangeText={(text) => this.updateText(text, "password")} style={styles.input} placeholder="Password" secureTextEntry={true}
           value={this.state.password} autoCorrect={false}
