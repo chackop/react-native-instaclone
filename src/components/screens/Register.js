@@ -52,9 +52,11 @@ export default class Register extends Component {
         <Text> REGISTER PAGE </Text>
         <TextInput onChangeText={(text) => this.updateText(text, "email")} style={styles.input} placeholder="Username"
           value={this.state.email} autoCorrect={false}
+          autoCapitalize="none"
         />
         <TextInput onChangeText={(text) => this.updateText(text, "password")} style={styles.input} placeholder="Password" secureTextEntry={true}
           value={this.state.password} autoCorrect={false}
+          autoCapitalize="none"
         />
         <Button title="Sign Up" onPress={() => {
           this.register();

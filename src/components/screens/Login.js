@@ -24,9 +24,9 @@ export default class Login extends Component {
 
     login() {
         // console.log(this.state.credentials);
-        let credentials =  this.state.credentials;
+        let credentials = this.state.credentials;
         credentials.email = this.state.credentials.email.toLowerCase();
-        
+
         fetch(config.baseUrl + 'login', {
             method: 'POST',
             headers: {
@@ -45,7 +45,7 @@ export default class Login extends Component {
                 }
             })
             .catch((err) => {
-                console.log("error data", JSON.stringify(err.message));
+                alert(JSON.stringify(err.message));
             });
     }
 
@@ -55,9 +55,12 @@ export default class Login extends Component {
                 <Text> REGISTER PAGE </Text>
                 <TextInput onChangeText={(text) => this.updateText(text, "email")} style={styles.input} placeholder="Username"
                     value={this.state.email} autoCorrect={false}
+                    autoCapitalize="none"
                 />
                 <TextInput onChangeText={(text) => this.updateText(text, "password")} style={styles.input} placeholder="Password" secureTextEntry={true}
                     value={this.state.password} autoCorrect={false}
+                    autoCapitalize="none"
+
                 />
                 <Button title="Login" onPress={() => {
                     this.login();
