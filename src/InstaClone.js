@@ -4,8 +4,8 @@ import { MainFeed, Login, Camera, Profile, Register } from './components/screens
 import { SwitchNavigator, TabNavigator, StackNavigator } from "react-navigation";
 
 const IntroStack = StackNavigator({
-  login: Login,
   register: Register,
+  login: Login,
 })
 
 const Tabs = TabNavigator({
