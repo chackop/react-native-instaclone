@@ -14,6 +14,8 @@ router.get('/:resource', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
+	console.log("post sign up");
+	
 	turbo.createUser(req.body)
 		.then(data => {
 			res.json({

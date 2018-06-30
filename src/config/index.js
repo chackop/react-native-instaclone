@@ -8,4 +8,5 @@ export default {
         rowHeight: 50,
     },
     baseUrl: 'https://instaapi-5dtcw0.turbo360-vertex.com/api/'
+    // baseUrl: 'http://localhost:3000/api/'
 };
